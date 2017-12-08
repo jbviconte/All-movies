@@ -8,4 +8,8 @@
 
 <h1>Home Front</h1>
 
+
+<a href="details.php"><h2>Page détails</h2></a>
+
+
 <?php include('inc/footer.php') ?>
