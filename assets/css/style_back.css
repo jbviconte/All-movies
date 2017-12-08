@@ -5,3 +5,10 @@
 body{
   background-color: white;
 }
+#wrapper{
+  margin: auto;
+  width: 75%;
+  height: 500px;
+  background-color: rgba(102, 148, 209, 0.76);
+  text-align: center;
+}

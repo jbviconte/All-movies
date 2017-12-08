@@ -1,0 +1,10 @@
+<?php
+
+function connecLogin(){
+  if(!empty($_SESSION)) {
+    if (!empty($_SESSION['user']['pseudo']) && !empty($_SESSION['user']['id']) && is_numeric($_SESSION['user']['id']) && !empty($_SESSION['user']['role']) && !empty($_SESSION['user']['ip']) && $_SESSION['user']['ip'] == $_SERVER['REMOTE_ADDR']) {
+      return true;
+    }
+  }
+  return false;
+}
