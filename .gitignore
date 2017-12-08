@@ -1,1 +1,5 @@
 /posters/
+/vendor/
+/inc/pdo.php/
+/composer.json/
+/composer.lock/
