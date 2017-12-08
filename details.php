@@ -6,6 +6,6 @@
 
 
 
-<h1>Consultation, ajout, modification</h1>
+<h1>Page accueil</h1>
 
 <?php include('inc/footer_back.php') ?>
