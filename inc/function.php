@@ -8,3 +8,10 @@ function connecLogin(){
   }
   return false;
 }
+
+
+//fonction affichage image sur page détails
+function getImageFilm($film)
+{
+	echo '<img src="posters'.$film['id'].'.jpg" alt="'.$film['id'] .'">';
+}
