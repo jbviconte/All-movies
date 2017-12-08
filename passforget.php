@@ -39,7 +39,7 @@ if (!empty($_POST['submit'])) {
             $mail->Host = 'tls://smtp.gmail.com:587';  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
             $mail->Username = 'viconte.jeanbaptiste@gmail.com';                 // SMTP username
-            $mail->Password = 'secret';                           // SMTP password
+            $mail->Password = '';                           // SMTP password
             $mail->SMTPSecure = 'TLS';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
 
