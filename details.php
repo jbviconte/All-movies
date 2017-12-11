@@ -1,14 +1,31 @@
 <?php $title = ''; ?>
 <?php include('inc/pdo.php') ?>
+<?php session_start();?>
+<?php include('helper/session.php'); ?>
+<?php include('inc/function.php') ?>
+<?php
 
+if (!empty($_GET['slug'])) {
+  $slug = $_GET['slug'];
+
+  $sql = "SELECT * FROM movies_full WHERE slug = :slug";
+  $query = $pdo->prepare($sql);
+  // bindValue
+  $query->bindValue(':slug', $slug, PDO::PARAM_INT);
+  $query->execute();
+  $film = $query->fetch();
+
+        //echo '<pre>';
+        //print_r($films);
+        //echo '</pre>';
+}
+?>
 
 <?php include('inc/header_back.php') ?>
 
 
 
 <div class="film">
-
-    <?php foreach ($films as $film) { ?>
 
 
           <p>id           : <?php echo $film['id']; ?>        </p>
@@ -31,9 +48,6 @@
 
         <?php getImageFilm($film); ?>
 
-
-
-  <?php  }  ?>
 
 
 
