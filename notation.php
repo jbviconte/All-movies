@@ -46,7 +46,7 @@ if(!empty($_POST['vote'])) {
  include('inc/header.php')
 
 ?>
-
+<link rel="stylesheet" href="assets/css/rating.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 
 <header class='header text-center' class="header">

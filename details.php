@@ -65,7 +65,7 @@ if (!empty($_GET['slug'])) {
         <!-- <a href="avoir.php"<input type="button" value="A voir"> -->
 
 
-
+<a href="notation.php">Noté ce film</a>
 </div>
 
 <?php include('inc/footer.php') ?>
