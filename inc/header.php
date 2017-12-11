@@ -1,3 +1,4 @@
+<?php include('inc/function.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,19 @@
   <div id="wrapper">
 
     <header>
+      <?php
+      if (connecLogin() == true) {
 
+        echo 'Bonjour, ' . $_SESSION['user']['pseudo'] . '<br />';
+        echo '<a href="deconnection.php">Déconnection</a>';
+
+      } else {
+
+        echo '<a href="inscription.php">Inscription</a><br />';
+        echo '<a href="connection.php">Connection</a>';
+
+      }
+      ?>
     </header>
 
     <div id="content">

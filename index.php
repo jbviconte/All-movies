@@ -2,7 +2,7 @@
 <?php include('inc/pdo.php') ?>
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
-<?php include('inc/function.php') ?>
+
 
 <?php
 $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
@@ -21,30 +21,19 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 <?php include('inc/header.php') ?>
 
+<form action="search.php" method="post">
+  <label for="search" >Recherche</label>
+  <input type="text" name="search" size="10">
+<input type="submit" value="Ok">
+
+</form>
 
 
 <h1>Home Front</h1>
 
-<?php
-if (connecLogin() == true) {
-
-  echo 'Bonjour, ' . $_SESSION['user']['pseudo'] . '<br />';
-  echo '<a href="deconnection.php">Déconnection</a>';
-
-} else {
-
-  echo '<a href="inscription.php">Inscription</a><br />';
-  echo '<a href="connection.php">Connection</a>';
-
-}
-?>
-
-
-
-
-
 
 <div class="film">
+
     <?php foreach ($films as $film) { ?>
 
       <p>titre        : <?php echo $film['title']; ?></p>
