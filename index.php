@@ -20,22 +20,22 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 ?>
 
-<!-- <link rel="stylesheet" href="assets/css/style.css">
->>>>>>> four -->
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
 
 
 
 <?php include('inc/header.php') ?>
 
-<form action="search.php" method="post">
+<!-- <form action="search.php" method="post">
   <label for="search" >Recherche</label>
   <input type="text" name="search" size="10">
 <input type="submit" value="Ok">
 
-</form>
+</form> -->
 
 <h1>Home Front</h1>
-<!--==========================Catégorie===================================== -->
+<!-- ==========================Catégorie===================================== -->
 <div>
   <h2>Catégorie</h2>
 
@@ -52,32 +52,30 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div><br /><br />
 
 <!--=========================Années========================================= -->
-    <div>
-      <h2>Années</h2>
-            <label for="year">Year:</label>
-            <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                <div id="slider-range"></div>
-    </div><br /><br />
+<div>
+  <h2>Années</h2>
+    <label for="year">Year:</label>
+    <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    <div id="slider-range"></div>
+</div><br /><br />
 <!--=====================Popularité========================================= -->
-        <div>
-          <h2>Popularité</h2>
-            <label for="popularite" class="popularite">Popularite :</label>
-            <input type="range" name="popularite" min="1" max="5" value="">
-        </div><br /><br />
+<div>
+  <h2>Popularité</h2>
+    <label for="popularite" class="popularite">Popularite :</label>
+    <input type="range" name="popularite" min="1" max="5" value="">
+</div><br /><br />
 <!--=====================Recherche========================================== -->
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
-            <div id="search">
-                <h2>Recherche</h2>
-                  <form>
-                      <label for="searchs" class="recherche">Rechercher :</label>
-                      <input type="text" name="searchs" value="">
-                  </form>
-            </div>
+<div id="search">
+  <h2>Recherche</h2>
+  <form>
+    <label for="search" class="recherche">Rechercher :</label>
+    <input type="text" name="search" value="">
+    <input type="submit" value="Rechercher">
+  </form>
+</div>
 
-<form>
-<input type="submit" value="Rechercher">
-</form>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -139,17 +137,39 @@ $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#sl
 
 //==================== Recherche ===========================
 
-function showThis(_div){
-    var obj = document.getElementById("search");
-    if(obj.style.display == "block") {
-        obj.style.display = "none";
-  } else {
-        obj.style.display = "block";
-      }
-      $(document).click(function() {
-  $("#search").toggle("swing");
-});
-}
+$( function() {
+  // run the currently selected effect
+  function runEffect() {
+    // get effect type from
+    var selectedEffect = $( "bounce" ).val();
+
+    // Most effect types need no options passed by default
+    var options = {};
+    // some effects have required parameters
+    if ( selectedEffect === "bounce" ) {
+      options = { percent: 50 };
+    } else if ( selectedEffect === "size" ) {
+      options = { to: { width: 280, height: 185 } };
+    }
+
+    // Run the effect
+    $( "#search" ).show( selectedEffect, options, 500, callback );
+  };
+
+  //callback function to bring a hidden box back
+  function callback() {
+    setTimeout(function() {
+      $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+    }, 1000 );
+  };
+
+  // Set effect from select menu value
+  $( "#research" ).on( "click", function() {
+    runEffect();
+  });
+
+  $( "#search" ).hide();
+} );
 
 </script>
 
