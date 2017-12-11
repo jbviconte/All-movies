@@ -14,3 +14,9 @@ function getImageFilm($film)
 {
 	echo '<img src="posters/'.$film['id'].'.jpg" alt="'.$film['id'] .'">';
 }
+
+function debug($tableau) {
+  echo'<pre>';
+  print_r($tableau);
+  echo '</pre>';
+}
