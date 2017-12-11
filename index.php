@@ -153,7 +153,7 @@ function showThis(_div){
         obj.style.display = "block";
       }
       $(document).click(function() {
-  $( "#search" ).toggle( "swing" );
+  $("#search").toggle("swing");
 });
 }
 
