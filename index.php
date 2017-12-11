@@ -1,47 +1,53 @@
 <?php $title = 'Home Front'; ?>
 <?php include('inc/pdo.php') ?>
+<link rel="stylesheet" href="assets/css/style.css">
+
 
 
 <?php include('inc/header.php') ?>
 
 <h1>Home Front</h1>
-
+<!--==========================Catégorie===================================== -->
 <div>
   <h2>Catégorie</h2>
 
     <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
     <label><input type="checkbox" name="check" value="action" />Action</label><br />
     <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
-    <label><input type="checkbox" name="check" value="anime" />Animé</label>
+    <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
+    <label><input type="checkbox" name="check" value="western" />Western</label><br />
+    <label><input type="checkbox" name="check" value="amour" />Romance</label>
     <br />
     <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
 
-</div>
+</div><br /><br />
 
-
+<!--=========================Années========================================= -->
     <div>
       <h2>Années</h2>
-
             <label for="year">Year:</label>
             <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
                 <div id="slider-range"></div>
-    </div>
-
+    </div><br /><br />
+<!--=====================Popularité========================================= -->
         <div>
           <h2>Popularité</h2>
             <label for="popularite" class="popularite">Popularite :</label>
             <input type="range" name="popularite" min="1" max="5" value="">
-        </div>
+        </div><br /><br />
+<!--=====================Recherche========================================== -->
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
-              <div class="search">
+            <div id="search">
                 <h2>Recherche</h2>
-                  <label for="search" class="search">Rechercher :</label>
-                  <input type="text" name="search" value="">
-                  <input type="button" value="Afficher/Cacher" onclick="hideThis('form1')">
-              </div>
+                  <form>
+                      <label for="searchs" class="recherche">Rechercher :</label>
+                      <input type="text" name="searchs" value="">
+                  </form>
+            </div>
 
 <form>
-<input type="submit" value="search">
+<input type="submit" value="Rechercher">
 </form>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -104,16 +110,24 @@ $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#sl
 
 //==================== Recherche ===========================
 
-function hideThis(_div){
-    var obj = document.getElementById(_div);
-    if(obj.style.display == "block")
+function showThis(_div){
+    var obj = document.getElementById("search");
+    if(obj.style.display == "block") {
         obj.style.display = "none";
-    else
+  } else {
         obj.style.display = "block";
+      }
+      $(document).click(function() {
+  $( "#search" ).toggle( "swing" );
+});
 }
+
 </script>
+
 <br /><br /><br /><br /><br />
+
 <form>
 <input type="reset" value="+ de Film !">
 </form>
+
 <?php include('inc/footer.php') ?>
