@@ -1,13 +1,6 @@
 <?php $title = ''; ?>
 <?php include('inc/pdo.php') ?>
 
-    <?php $sql = "SELECT * FROM movies_full  WHERE (:id, :slug, :title, :year, :genres, :plot, :directors, :cast, :writers, :runtime, :mpaa, :rating, :popularity, :modified, :created)"
-        $stmt = $pdo->prepare($sql);
-        // execution de la requête preparé
-        $stmt->execute();
-        $films = $stmt->fetch();
-    ?>
-
 
 
 <?php include('inc/header_back.php') ?>
@@ -18,7 +11,7 @@
 
 
 
-    <?php foreach ($films as $film) { ?>
+    <?php $film = $_GET['']; { ?>
 
 
           <p>id           : <?php echo $film['id']; ?>        </p>
