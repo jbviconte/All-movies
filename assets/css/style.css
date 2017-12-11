@@ -5,3 +5,11 @@
 body{
   background-color: white;
 }
+#search {
+  display: none;
+}
+#toggle {
+   width: 100px;
+   height: 100px;
+   background: #ccc;
+}

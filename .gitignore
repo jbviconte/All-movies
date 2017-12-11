@@ -1,5 +1,9 @@
 /posters/
+<<<<<<< HEAD
 /vendor/
 /inc/pdo.php
 /composer.json
 /composer.lock
+=======
+/jquery-ui-1.12.1.custom/
+>>>>>>> four
