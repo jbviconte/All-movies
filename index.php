@@ -5,6 +5,7 @@
 
 
 <?php
+
 $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
               // preparation de la requête
@@ -19,6 +20,8 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 ?>
 
+
+
 <?php include('inc/header.php') ?>
 
 <form action="search.php" method="post">
@@ -29,9 +32,12 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form>
 
 
+<<<<<<< HEAD
 <h1>Home Front</h1>
 
 
+=======
+>>>>>>> a96f1903d0428e59f8b649d160fe3801e999296a
 <div class="film">
 
     <?php foreach ($films as $film) { ?>
