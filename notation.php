@@ -39,9 +39,11 @@ if(!empty($_POST['vote'])) {
 
 
 
+
+
 }
 
- include('incnote/headergroupe.php')
+ include('inc/header.php')
 
 ?>
 
@@ -162,4 +164,4 @@ $('.success-box div.text-message').html("<span>" + msg + "</span>");
 
 
 
-<?php include('incnote/footergroupe.php') ?>
+<?php include('inc/footer.php') ?>
