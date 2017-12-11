@@ -1,6 +1,5 @@
 <?php $title = 'Home Front'; ?>
 <?php include('inc/pdo.php') ?>
-<<<<<<< HEAD
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
 
@@ -20,22 +19,21 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         //echo '</pre>';
 
 ?>
-=======
-<link rel="stylesheet" href="assets/css/style.css">
->>>>>>> four
+
+<!-- <link rel="stylesheet" href="assets/css/style.css">
+>>>>>>> four -->
 
 
 
 <?php include('inc/header.php') ?>
 
-<<<<<<< HEAD
 <form action="search.php" method="post">
   <label for="search" >Recherche</label>
   <input type="text" name="search" size="10">
 <input type="submit" value="Ok">
 
 </form>
-=======
+
 <h1>Home Front</h1>
 <!--==========================Catégorie===================================== -->
 <div>
@@ -49,14 +47,10 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <label><input type="checkbox" name="check" value="amour" />Romance</label>
     <br />
     <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
->>>>>>> four
+
 
 </div><br /><br />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h1>Home Front</h1>
-=======
 <!--=========================Années========================================= -->
     <div>
       <h2>Années</h2>
@@ -164,11 +158,7 @@ function showThis(_div){
 <form>
 <input type="reset" value="+ de Film !">
 </form>
->>>>>>> four
 
-
-=======
->>>>>>> a96f1903d0428e59f8b649d160fe3801e999296a
 <div class="film">
 
     <?php foreach ($films as $film) { ?>
