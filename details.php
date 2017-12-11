@@ -1,4 +1,4 @@
-<?php $title = ''; ?>
+<?php $title = 'Détails du film'; ?>
 <?php include('inc/pdo.php') ?>
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
@@ -22,8 +22,6 @@ if (!empty($_GET['slug'])) {
 
         if (!empty($film)){
 
-
-
         } else {
           $film != $_GET['slug'];
           header('Location: 404.php');
@@ -38,7 +36,7 @@ if (!empty($_GET['slug'])) {
 
 <?php include('inc/header_back.php') ?>
 
-
+<h1>Détails du film</h1>
 
 <div class="film">
 
@@ -62,7 +60,8 @@ if (!empty($_GET['slug'])) {
 
         <?php getImageFilm($film); ?>
 
-
+        <!-- temporaire -->
+        <!-- <a href="avoir.php"<input type="button" value="A voir"> -->
 
 
 
