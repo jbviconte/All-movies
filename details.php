@@ -20,10 +20,18 @@ if (!empty($_GET['slug'])) {
         //print_r($films);
         //echo '</pre>';
 
+        if (!empty($film)){
 
-    } else {
-      header('Location: 404.php');
-    }
+
+
+        } else {
+          $film != $_GET['slug'];
+          header('Location: 404.php');
+        }
+
+      } else {
+        header('Location: 404.php');
+            }
 
 ?>
 
