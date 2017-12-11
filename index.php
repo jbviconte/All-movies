@@ -69,7 +69,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 <div id="search">
   <h2>Recherche</h2>
-  <form>
+  <form action="search.php" method="post">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
