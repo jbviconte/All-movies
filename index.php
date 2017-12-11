@@ -4,6 +4,20 @@
 <?php include('helper/session.php'); ?>
 <?php include('inc/function.php') ?>
 
+<?php
+$sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
+
+              // preparation de la requête
+        $stmt = $pdo->prepare($sql);
+        // execution de la requête preparé
+        $stmt->execute();
+        $films = $stmt->fetchAll();
+
+        //echo '<pre>';
+        //print_r($films);
+        //echo '</pre>';
+
+?>
 
 <?php include('inc/header.php') ?>
 
@@ -26,21 +40,8 @@ if (connecLogin() == true) {
 ?>
 
 
-<?php
 
-$sql = "SELECT * FROM users ORDER BY RAND() LIMIT 100";
 
-              // preparation de la requête
-        $stmt = $pdo->prepare($sql);
-        // execution de la requête preparé
-        $stmt->execute();
-        $films = $stmt->fetchAll();
-
-        //echo '<pre>';
-        //print_r($films);
-        //echo '</pre>';
-
-?>
 
 
 <div class="film">
