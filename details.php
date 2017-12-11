@@ -5,6 +5,8 @@
 <?php include('inc/function.php') ?>
 <?php
 
+$error = array();
+
 if (!empty($_GET['slug'])) {
   $slug = $_GET['slug'];
 
@@ -14,11 +16,15 @@ if (!empty($_GET['slug'])) {
   $query->bindValue(':slug', $slug, PDO::PARAM_INT);
   $query->execute();
   $film = $query->fetch();
-
         //echo '<pre>';
         //print_r($films);
         //echo '</pre>';
-}
+
+
+    } else {
+      header('Location: 404.php');
+    }
+
 ?>
 
 
@@ -28,13 +34,6 @@ if (!empty($_GET['slug'])) {
 
 <div class="film">
 
-<<<<<<< HEAD
-
-
-    <?php $film = $_GET['']; { ?>
-
-=======
->>>>>>> 59dbbdb18d8a372f01c54eb89593959d05b79700
 
           <p>id           : <?php echo $film['id']; ?>        </p>
           <p>slug         : <?php echo $film['slug']; ?>      </p>
