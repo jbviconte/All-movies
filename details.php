@@ -61,11 +61,9 @@ if (!empty($_GET['slug'])) {
   <p>modifié le   : <?php echo $film['modified']; ?>  </p>
   <p>créé le      : <?php echo $film['created']; ?>   </p>
 
-        <!-- temporaire -->
-        <!-- <a href="avoir.php"<input type="button" value="A voir"> -->
 
 
-<a href="notation.php">Noté ce film</a>
+  <a href="notation.php">Noté ce film</a>
 </div>
 
 <?php include('inc/footer.php') ?>

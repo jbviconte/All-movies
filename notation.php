@@ -163,5 +163,5 @@ $('.success-box div.text-message').html("<span>" + msg + "</span>");
 
 
 
-
+<a href="index.php">retour à l'acceuil</a>
 <?php include('inc/footer.php') ?>
