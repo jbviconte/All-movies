@@ -29,16 +29,20 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
+
 <!--=====================Recherche========================================== -->
+
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 <div id="search">
   <h2>Recherche</h2>
-  <form action="search.php?recherche=' . $recherche . '" method="post">
+  <form action="search.php?search=<?php $search ?>" method="get">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
   </form>
+
 <!--==========================Catégorie===================================== -->
+
 <div>
   <h2>Catégorie</h2>
 
@@ -61,14 +65,33 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <br />
     <button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
 
-</div><br /><br />
+    <input type="search" name="search" value="">
+
+
+
+<!-- ==========================Catégorie===================================== -->
+
+  <div>
+    <h2>Catégorie</h2>
+
+      <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
+        <label><input type="checkbox" name="check" value="action" />Action</label><br />
+          <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
+          <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
+        <label><input type="checkbox" name="check" value="western" />Western</label><br />
+      <label><input type="checkbox" name="check" value="amour" />Romance</label>
+        <br />
+<button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
+
+
+    </div><br /><br />
 
 <!--=========================Années========================================= -->
 
 <div>
   <h2>Années</h2>
     <label for="year">Year:</label>
-    <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
     <div id="slider-range"></div>
 </div><br /><br />
 
@@ -87,12 +110,26 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div>
 <!-- end recherche | -->
 
+  <div>
+    <h2>Années</h2>
+      <label for="year">Year:</label>
+        <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      <div id="slider-range"></div>
+    </div><br /><br />
 
+<!--=====================Popularité========================================= -->
 
+  <div>
+    <h2>Popularité</h2>
+      <label for="popularite" class="popularite">Popularite :</label>
+        <input type="range" name="popularite" min="1" max="5" value="">
+  </div><br /><br />
+    <input type="submit" value="Rechercher">
+  </form>
 </div>
 
 
-<br /><br /><br /><br /><br />
+<br /><br />
 
 
 
@@ -116,7 +153,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 <form>
-<input type="submit" value="+ de Film !">
+  <input type="submit" value="+ de Film !">
 </form>
 
 

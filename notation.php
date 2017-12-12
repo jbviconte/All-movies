@@ -1,5 +1,7 @@
 <?php $title = 'Notation'; ?>
 <?php include('inc/pdo.php') ?>
+<?php session_start();?>
+<?php include('helper/session.php'); ?>
 <?php
 
 // tableau vide qui definit et va permettre d'afficher les erreurs
@@ -43,10 +45,10 @@ $error = array();
 
 
 
-echo '<pre>';
-print_r($error);
-echo '</pre>';
-
+// echo '<pre>';
+// print_r($error);
+// echo '</pre>';
+//
 
 
 
