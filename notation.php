@@ -1,47 +1,56 @@
 <?php $title = 'Notation'; ?>
 <?php include('inc/pdo.php') ?>
-<?php include('inc/fonctions.php') ?>
 <?php
 
 // tableau vide qui definit et va permettre d'afficher les erreurs
 $error = array();
 
-// si le vote est soumis (submit envoyé)
-if(!empty($_POST['vote'])) {
-  // que l'utilisateur existe dans la base de données et qu'il est connecté
-  if(!empty($_POST['user_id'])) {
-    // on va chercher l'id de l'utilisateur pour verifier si il existe, ce qui permet aussi de savoir si il est connecté
-    $sql    = "SELECT * FROM notes WHERE user_id = :user_id";
-    // preparation requete
-    $query  = $pdo->prepare($sql);
-    // protections SQL
-    $query->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-    // execution de la requete
-    $query->execute();
-    // affichage de cette requete
-    $userid = $query->fetch();
-  };
+  if(!empty($_POST['vote'])) {
+    if(!empty($_GET['user_id']) && is_numeric($_GET['user_id'])) {
+      $userid = $_GET['user_id'];
+    } else {
+      header('location: connection.php');
+    }
 
-    // si la note est valide et bien renseignée (apres clic sur je vote)
-    if(!empty($_POST['note'])) {
-    // on va chercher celle-ci dans la base de données
-    $sql    = "SELECT * FROM notes WHERE note = :note";
-    // preparation requete
-    $query  = $pdo->prepare($sql);
+    $sql = "SELECT * FROM movies_full WHERE id = :id";
+    // preparation
+    $query = $pdo->prepare($sql);
     // protection SQL
-    $query->bindValue(':note', $note, PDO::PARAM_INT);
-    // execution de la requete
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+    // execution
     $query->execute();
-    // affichage de cette requete
-    $note   = $query->fetch();
+    // affichage
+    $film = $query->fetchAll();
+
+    echo '<pre>';
+    print_r($film);
+    echo '</pre>';
+
+    // definition de insert into, ici on vise a ajouter la note a la base de données
+    $sql = "INSERT INTO notes (id, user_id, film_id, note, created_at) VALUES (:id, :user_id, :film_id, :note, NOW())";
+    // preparation requete
+    $query = $pdo->prepare($sql);
+    // protection SQL
+    $query->bindValue(':id', $id, PDO::PARAM_INT); // definir l'id a recuperer (ici le film visé)
+    $query->bindValue(':user_id', $user_id, PDO::PARAM_STR);
+    $query->bindValue(':film_id', $film_id, PDO::PARAM_STR);
+    $query->bindValue(':note', $note, PDO::PARAM_INT);
+    $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
+    // execution
+    $query->execute();
   };
 
 
 
 
+echo '<pre>';
+print_r($error);
+echo '</pre>';
 
 
-}
+
+
+
 
  include('inc/header.php')
 
@@ -83,7 +92,8 @@ if(!empty($_POST['vote'])) {
     <div class='text-message'></div>
   </div>
 
-  <p class="vote"><input type="submit" class="vote" name="vote" value="Je vote !"></p>
+  <input type="number" name="note" value="note" min="0" max="100">
+  <input type="submit" class="vote" name="vote" value="Je vote !">
 
 
 </section>
