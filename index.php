@@ -29,10 +29,8 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
-
 <!--=====================Recherche========================================== -->
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
-
 <div id="search">
   <h2>Recherche</h2>
   <form action="search.php?search=' . $recherche . '" method="post">
@@ -82,15 +80,27 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <input type="range" name="popularite" min="1" max="5" value="">
 </div><br /><br />
 
-
-
 <form>
 <input type="submit" value="Rechercher">
 </form>
 </div>
 <!-- end recherche | -->
 
+<div class="film">
 
+    <?php foreach ($films as $film) { ?>
+
+      <p>titre        : <?php echo $film['title']; ?></p>
+      <p>réalisateurs : <?php echo $film['directors']; ?></p>
+      <p>cast         : <?php echo $film['cast']; ?></p>
+
+        <a href="details.php?slug=<?= $film['slug']; ?>">
+                <?php getImageFilm($film); ?>
+        </a>
+    <?php } ?>
+<form>
+  <input type="reset" value="+ de Film !">
+</form>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -186,22 +196,5 @@ $( function() {
 } );
 </script>
 
-
-<div class="film">
-
-    <?php foreach ($films as $film) { ?>
-
-      <p>titre        : <?php echo $film['title']; ?></p>
-      <p>réalisateurs : <?php echo $film['directors']; ?></p>
-      <p>cast         : <?php echo $film['cast']; ?></p>
-
-        <a href="details.php?slug=<?= $film['slug']; ?>">
-                <?php getImageFilm($film); ?>
-        </a>
-
-    <?php } ?>
-<form>
-  <input type="reset" value="+ de Film !">
-</form>
 
 <?php include('inc/footer.php') ?>
