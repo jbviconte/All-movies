@@ -1,54 +1,61 @@
 <?php $title = 'Notation'; ?>
+<?php include('inc/function.php') ?>
 <?php include('inc/pdo.php') ?>
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
 <?php
 
+
+if (connecLogin() == false) {
+  die('403');
+}
 // tableau vide qui definit et va permettre d'afficher les erreurs
 $error = array();
 
 if(!empty($_GET['id'])) {
   $filmid = $_GET['id'];
 
-  // si le formulaire (ici la note) est soumis(e) alors j'execute les verifications et j'echange avec ma base de données
-  if(!empty($_POST['vote'])) {
 
-    $user_id  = trim(strip_tags($_POST['user_id']));
-    $note     = trim(strip_tags($_POST['note']));
 
     $sql = "SELECT * FROM movies_full WHERE id = :id";
     // preparation
     $query = $pdo->prepare($sql);
-    // protection SQL
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-    // execution
+   // protection SQL
+    $query->bindValue(':id', $filmid, PDO::PARAM_INT);
+   // execution
     $query->execute();
 
+  // si le formulaire (ici la note) est soumis(e) alors j'execute les verifications et j'echange avec ma base de données
+  if(!empty($_POST['vote'])) {
+    $note = trim(strip_tags($_POST['note']));
+    $id_user = $_SESSION['user']['id'];
     // definition de insert into, ici on vise a ajouter la note a la base de données
-    $sql = "INSERT INTO notes (note, created_at) VALUES (:note, NOW())";
+    $sql = "INSERT INTO notes (film_id,user_id,note, created_at) VALUES (:idfilm,:iduser,:note, NOW())";
     // preparation requete
     $query = $pdo->prepare($sql);
     // protection SQL
     $query->bindValue(':note', $note, PDO::PARAM_INT);
-    $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
+    $query->bindValue(':idfilm', $filmid, PDO::PARAM_INT);
+    $query->bindValue(':iduser', $id_user, PDO::PARAM_INT);
+
+  //  $filmid
+
+
     // execution
     $query->execute();
-  };
+  }
 
-    echo '<pre>';
-    print_r($error);
-    echo '</pre>';
+
 
   } else {
     header('location: index.php');
   }
 
- include('inc/header.php')
-
 
 ?>
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+<link rel="stylesheet" href="assets/css/rating.css">
 
 <header class='header text-center' class="header">
     <h2>Notez ce film</h2>
@@ -84,9 +91,10 @@ if(!empty($_GET['id'])) {
     <div class='text-message'></div>
   </div>
 
+<form action="" method="post">
   <input type="number" name="note" value="note" min="0" max="100">
   <input type="submit" class="votation" name="vote" value="Je vote !">
-
+</form>
 
 </section>
 
