@@ -33,7 +33,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 <div id="search">
   <h2>Recherche</h2>
-  <form action="search.php?search=' . $recherche . '" method="post">
+  <form action="search.php?recherche=' . $recherche . '" method="post">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
@@ -80,11 +80,21 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <input type="range" name="popularite" min="1" max="5" value="">
 </div><br /><br />
 
+
 <form>
 <input type="submit" value="Rechercher">
 </form>
 </div>
 <!-- end recherche | -->
+
+
+
+</div>
+
+
+<br /><br /><br /><br /><br />
+
+
 
 <div class="film">
 
@@ -102,7 +112,15 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
   <input type="reset" value="+ de Film !">
 </form>
 
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<form>
+<input type="submit" value="+ de Film !">
+</form>
+
+
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
