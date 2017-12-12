@@ -40,7 +40,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 <div id="search">
   <h2>Recherche</h2>
-  <form action="search.php?search=' . $recherche . '" method="post">
+  <form action="search.php?recherche=' . $recherche . '" method="post">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
@@ -82,9 +82,6 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 <br /><br /><br /><br /><br />
 
-<form>
-<input type="reset" value="+ de Film !">
-</form>
 
 <div class="film">
 
@@ -99,6 +96,10 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         </a>
 
     <?php } ?>
+
+<form>
+<input type="submit" value="+ de Film !">
+</form>
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
