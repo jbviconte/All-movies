@@ -71,8 +71,8 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
             <input type="range" name="popularite" min="1" max="5" value="">
         </div><br /><br />
 <!--=====================Recherche========================================== -->
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
             <div id="search">
                 <h2>Recherche</h2>
                   <form>
@@ -81,10 +81,12 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
                   </form>
             </div>
 
+
 <form>
 <input type="submit" value="Rechercher">
 </form>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -141,7 +143,7 @@ slide: function( event, ui ) {
 }
 });
 $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
-} );
+}, 20);
 
 //==================== Recherche ===========================
 
@@ -152,10 +154,18 @@ function showThis(_div){
   } else {
         obj.style.display = "block";
       }
+<<<<<<< HEAD
       $(document).click(function() {
   $("#search").toggle("swing");
 });
+=======
+          $( "#research" ).click(function() {
+          $( "#search" ).show( "slide", "right", 1000  );
+          });
+>>>>>>> four
 }
+
+
 
 </script>
 
