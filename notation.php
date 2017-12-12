@@ -55,7 +55,7 @@ echo '</pre>';
  include('inc/header.php')
 
 ?>
-
+<link rel="stylesheet" href="assets/css/rating.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 
 <header class='header text-center' class="header">
@@ -173,5 +173,5 @@ $('.success-box div.text-message').html("<span>" + msg + "</span>");
 
 
 
-
+<a href="index.php">retour à l'acceuil</a>
 <?php include('inc/footer.php') ?>
