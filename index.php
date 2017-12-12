@@ -11,19 +11,19 @@
 <div>
   <h2>Catégorie</h2>
 
-    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label><br />
-    <label><input type="checkbox" name="check" value="action" />Action</label><br />
-    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label><br />
-    <label><input type="checkbox" name="check" value="animation" />Animation</label><br />
+    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label>
+    <label><input type="checkbox" name="check" value="action" />Action</label>
+    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label>
+    <label><input type="checkbox" name="check" value="animation" />Animation</label>
     <label><input type="checkbox" name="check" value="romance" />Romance</label>
     <label><input type="checkbox" name="check" value="drama" />Drama</label>
     <label><input type="checkbox" name="check" value="thriller" />Thriller</label>
-    <label><input type="checkbox" name="check" value="comedy" />Comedy</label>
+    <label><input type="checkbox" name="check" value="comedy" />Comedy</label><br />
     <label><input type="checkbox" name="check" value="crime" />Crime</label>
     <label><input type="checkbox" name="check" value="horror" />Horror</label>
     <label><input type="checkbox" name="check" value="familly" />Familly</label>
     <label><input type="checkbox" name="check" value="mystery" />Mystery</label>
-    <label><input type="checkbox" name="check" value="adventure" />Adventure</label>
+    <label><input type="checkbox" name="check" value="adventure" />Adventure</label><br />
     <label><input type="checkbox" name="check" value="music" />Music</label>
     <label><input type="checkbox" name="check" value="war" />War</label>
     <label><input type="checkbox" name="check" value="biography" />Biography</label>
