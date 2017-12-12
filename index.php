@@ -35,6 +35,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
+<!--=====================Recherche========================================== -->
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
 <div id="search">
@@ -73,7 +74,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <label for="popularite" class="popularite">Popularite :</label>
     <input type="range" name="popularite" min="1" max="5" value="">
 </div><br /><br />
-<!--=====================Recherche========================================== -->
+
 
 
 </div>
