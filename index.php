@@ -56,8 +56,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <label><input type="checkbox" name="check" value="western" />Western</label><br />
     <label><input type="checkbox" name="check" value="amour" />Romance</label>
     <br />
-    <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
-
+    <button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
 
 </div><br /><br />
 
