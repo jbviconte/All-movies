@@ -5,12 +5,17 @@
 // tableau vide qui definit et va permettre d'afficher les erreurs
 $error = array();
 
+if(!empty($_GET['id'])) {
+  $filmid = $_GET['id'];
+} else {
+  header('location: index.php');
+}
+
+  // si le formulaire (ici la note) est soumis(e) alors j'execute les verifications et j'echange avec ma base de données
   if(!empty($_POST['vote'])) {
-    if(!empty($_GET['user_id']) && is_numeric($_GET['user_id'])) {
-      $userid = $_GET['user_id'];
-    } else {
-      header('location: connection.php');
-    }
+
+    $user_id  = trim(strip_tags($_POST['user_id']));
+    $note     = trim(strip_tags($_POST['note']));
 
     $sql = "SELECT * FROM movies_full WHERE id = :id";
     // preparation
@@ -19,48 +24,32 @@ $error = array();
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     // execution
     $query->execute();
-    // affichage
-    $film = $query->fetchAll();
-
-    echo '<pre>';
-    print_r($film);
-    echo '</pre>';
 
     // definition de insert into, ici on vise a ajouter la note a la base de données
-    $sql = "INSERT INTO notes (id, user_id, film_id, note, created_at) VALUES (:id, :user_id, :film_id, :note, NOW())";
+    $sql = "INSERT INTO notes (note, created_at) VALUES (:note, NOW())";
     // preparation requete
     $query = $pdo->prepare($sql);
     // protection SQL
-    $query->bindValue(':id', $id, PDO::PARAM_INT); // definir l'id a recuperer (ici le film visé)
-    $query->bindValue(':user_id', $user_id, PDO::PARAM_STR);
-    $query->bindValue(':film_id', $film_id, PDO::PARAM_STR);
     $query->bindValue(':note', $note, PDO::PARAM_INT);
     $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
     // execution
     $query->execute();
   };
 
-
-
-
-echo '<pre>';
-print_r($error);
-echo '</pre>';
-
-
-
-
-
+    echo '<pre>';
+    print_r($error);
+    echo '</pre>';
 
  include('inc/header.php')
 
+
 ?>
-<link rel="stylesheet" href="assets/css/rating.css">
+
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 
 <header class='header text-center' class="header">
     <h2>Notez ce film</h2>
-    <p>Chaque etoile correspond a 20 point (note totale sur 100)</p>
+    <p>Chaque etoile correspond a 20 points (note totale sur 100)</p>
 </header>
 
 <section class='rating-widget'>
@@ -93,7 +82,7 @@ echo '</pre>';
   </div>
 
   <input type="number" name="note" value="note" min="0" max="100">
-  <input type="submit" class="vote" name="vote" value="Je vote !">
+  <input type="submit" class="votation" name="vote" value="Je vote !">
 
 
 </section>
@@ -171,7 +160,4 @@ $('.success-box div.text-message').html("<span>" + msg + "</span>");
 </script>
 
 
-
-
-<a href="index.php">retour à l'acceuil</a>
 <?php include('inc/footer.php') ?>
