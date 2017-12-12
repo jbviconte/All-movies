@@ -35,6 +35,16 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
+
+<div id="search">
+  <h2>Recherche</h2>
+  <form action="search.php?search=' . $recherche . '" method="post">
+    <label for="search" class="recherche">Rechercher :</label>
+    <input type="text" name="search" value="">
+    <input type="submit" value="Rechercher">
+  </form>
+
 <!-- ==========================Catégorie===================================== -->
 <div>
   <h2>Catégorie</h2>
@@ -65,15 +75,8 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <input type="range" name="popularite" min="1" max="5" value="">
 </div><br /><br />
 <!--=====================Recherche========================================== -->
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
-<div id="search">
-  <h2>Recherche</h2>
-  <form action="search.php?search=' . $recherche . '" method="post">
-    <label for="search" class="recherche">Rechercher :</label>
-    <input type="text" name="search" value="">
-    <input type="submit" value="Rechercher">
-  </form>
+
 </div>
 
 
