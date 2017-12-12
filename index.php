@@ -35,6 +35,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
+<<<<<<< HEAD
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
 <div id="search">
@@ -46,6 +47,18 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
   </form>
 
 <!-- ==========================Catégorie===================================== -->
+=======
+
+<!--=====================Recherche========================================== -->
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
+            <div id="search">
+                <h2>Recherche</h2>
+                  <form>
+                      <label for="searchs" class="recherche">Rechercher :</label>
+                      <input type="text" name="searchs" value="">
+                  </form>
+<!--==========================Catégorie===================================== -->
+>>>>>>> four
 <div>
   <h2>Catégorie</h2>
 
@@ -53,17 +66,17 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <label><input type="checkbox" name="check" value="action" />Action</label><br />
     <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label><br />
     <label><input type="checkbox" name="check" value="animation" />Animation</label><br />
-    <label><input type="checkbox" name="check" value="romance" />Romance</label>
-    <label><input type="checkbox" name="check" value="drama" />Drama</label>
-    <label><input type="checkbox" name="check" value="thriller" />Thriller</label>
-    <label><input type="checkbox" name="check" value="comedy" />Comedy</label>
-    <label><input type="checkbox" name="check" value="crime" />Crime</label>
-    <label><input type="checkbox" name="check" value="horror" />Horror</label>
-    <label><input type="checkbox" name="check" value="familly" />Familly</label>
-    <label><input type="checkbox" name="check" value="mystery" />Mystery</label>
-    <label><input type="checkbox" name="check" value="adventure" />Adventure</label>
-    <label><input type="checkbox" name="check" value="music" />Music</label>
-    <label><input type="checkbox" name="check" value="war" />War</label>
+    <label><input type="checkbox" name="check" value="romance" />Romance</label><br />
+    <label><input type="checkbox" name="check" value="drama" />Drama</label><br />
+    <label><input type="checkbox" name="check" value="thriller" />Thriller</label><br />
+    <label><input type="checkbox" name="check" value="comedy" />Comedy</label><br />
+    <label><input type="checkbox" name="check" value="crime" />Crime</label><br />
+    <label><input type="checkbox" name="check" value="horror" />Horror</label><br />
+    <label><input type="checkbox" name="check" value="familly" />Familly</label><br />
+    <label><input type="checkbox" name="check" value="mystery" />Mystery</label><br />
+    <label><input type="checkbox" name="check" value="adventure" />Adventure</label><br />
+    <label><input type="checkbox" name="check" value="music" />Music</label><br />
+    <label><input type="checkbox" name="check" value="war" />War</label><br />
     <label><input type="checkbox" name="check" value="biography" />Biography</label>
     <br />
     <button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
@@ -78,6 +91,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <div id="slider-range"></div>
 </div><br /><br />
 <!--=====================Popularité========================================= -->
+<<<<<<< HEAD
 <div>
   <h2>Popularité</h2>
     <label for="popularite" class="popularite">Popularite :</label>
@@ -95,11 +109,21 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
                       <input type="text" name="searchs" value="">
                   </form>
             </div>
+=======
+        <div>
+          <h2>Popularité</h2>
+            <label for="popularite" class="popularite">Popularite :</label>
+            <input type="range" name="popularite" min="1" max="5" value="">
+        </div><br /><br />
 
+>>>>>>> four
+
+<!-- end recherche -->
 
 <form>
 <input type="submit" value="Rechercher">
 </form>
+<<<<<<< HEAD
 =======
 <div id="search">
   <h2>Recherche</h2>
@@ -115,6 +139,13 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div>
 
 >>>>>>> f650c5fe210cdb9494296dd502a18b901f81d9e6
+=======
+</div>
+
+<form>
+<input type="reset" value="+ de Film !">
+</form>
+>>>>>>> four
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -235,11 +266,6 @@ $( function() {
 
 </script>
 
-<br /><br /><br /><br /><br />
-
-<form>
-<input type="reset" value="+ de Film !">
-</form>
 
 <div class="film">
 
