@@ -6,6 +6,11 @@
 $error = array();
 
   if(!empty($_POST['vote'])) {
+    if(!empty($_GET['user_id']) && is_numeric($_GET['user_id'])) {
+      $userid = $_GET['user_id'];
+    } else {
+      header('location: connection.php');
+    }
 
     $sql = "SELECT * FROM movies_full WHERE id = :id";
     // preparation
@@ -20,7 +25,6 @@ $error = array();
     echo '<pre>';
     print_r($film);
     echo '</pre>';
-
 
     // definition de insert into, ici on vise a ajouter la note a la base de données
     $sql = "INSERT INTO notes (id, user_id, film_id, note, created_at) VALUES (:id, :user_id, :film_id, :note, NOW())";
