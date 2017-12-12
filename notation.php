@@ -6,13 +6,9 @@
 
 // tableau vide qui definit et va permettre d'afficher les erreurs
 $error = array();
-
-  if(!empty($_POST['vote'])) {
-    if(!empty($_GET['user_id']) && is_numeric($_GET['user_id'])) {
-      $userid = $_GET['user_id'];
-    } else {
-      header('location: connection.php');
-    }
+if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = $_GET['id'];
+    $film_id = $_GET['id'];
 
     $sql = "SELECT * FROM movies_full WHERE id = :id";
     // preparation
@@ -22,11 +18,11 @@ $error = array();
     // execution
     $query->execute();
     // affichage
-    $film = $query->fetchAll();
+    $film = $query->fetch();
 
-    echo '<pre>';
-    print_r($film);
-    echo '</pre>';
+  if(!empty($_POST['vote'])) {
+
+    $note = trim(strip_strp($_post['note']));
 
     // definition de insert into, ici on vise a ajouter la note a la base de données
     $sql = "INSERT INTO notes (id, user_id, film_id, note, created_at) VALUES (:id, :user_id, :film_id, :note, NOW())";
@@ -42,13 +38,13 @@ $error = array();
     $query->execute();
   };
 
-
+}
 
 
 // echo '<pre>';
 // print_r($error);
 // echo '</pre>';
-//
+
 
 
 
@@ -62,7 +58,7 @@ $error = array();
 
 <header class='header text-center' class="header">
     <h2>Notez ce film</h2>
-    <p>Chaque etoile correspond a 20 point (note totale sur 100)</p>
+    <p>Chaque etoile correspond à 20 point (note totale sur 100)</p>
 </header>
 
 <section class='rating-widget'>
@@ -71,19 +67,19 @@ $error = array();
   <div class='rating-stars text-center'>
     <ul id='stars'>
       <li class='star' data-value='1'>
-        <i class='fa fa-star fa-fw'></i>
+        <i name='etoile1' class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='2'>
-        <i class='fa fa-star fa-fw'></i>
+        <i name='etoile2' class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='3'>
-        <i class='fa fa-star fa-fw'></i>
+        <i name='etoile3' class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='4'>
-        <i class='fa fa-star fa-fw'></i>
+        <i name='etoile4' class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='5'>
-        <i class='fa fa-star fa-fw'></i>
+        <i name='etoile5' class='fa fa-star fa-fw'></i>
       </li>
     </ul>
   </div>

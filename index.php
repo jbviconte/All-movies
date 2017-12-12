@@ -40,7 +40,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 <div id="search">
   <h2>Recherche</h2>
-  <form action="search.php?search=<?php $search ?>" method="get">
+  <form action="search.php" method="get">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="search" name="search" value="">
 
@@ -50,12 +50,12 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
   <div>
     <h2>Catégorie</h2>
 
-      <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
-      <label><input type="checkbox" name="check" value="action" />Action</label><br />
-      <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
-      <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
-      <label><input type="checkbox" name="check" value="western" />Western</label><br />
-      <label><input type="checkbox" name="check" value="amour" />Romance</label>
+      <label><input type="checkbox" name="check" value="Fantastique" />Fantastique</label><br />
+      <label><input type="checkbox" name="check" value="Action" />Action</label><br />
+      <label><input type="checkbox" name="check" value="sci-fi" />Science-Fiction</label><br />
+      <label><input type="checkbox" name="check" value="Animation" />Animation</label><br />
+      <label><input type="checkbox" name="check" value="Western" />Western</label><br />
+      <label><input type="checkbox" name="check" value="Romance" />Romance</label>
       <br />
       <button id="bouton" value="1">Tout cocher</button>
 
