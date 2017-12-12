@@ -7,25 +7,34 @@
 <?php include('inc/header.php') ?>
 
 <h1>Home Front</h1>
+
+<!--=====================Recherche========================================== -->
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
+            <div id="search">
+                <h2>Recherche</h2>
+                  <form>
+                      <label for="searchs" class="recherche">Rechercher :</label>
+                      <input type="text" name="searchs" value="">
+                  </form>
 <!--==========================Catégorie===================================== -->
 <div>
   <h2>Catégorie</h2>
 
-    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label>
-    <label><input type="checkbox" name="check" value="action" />Action</label>
-    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label>
-    <label><input type="checkbox" name="check" value="animation" />Animation</label>
-    <label><input type="checkbox" name="check" value="romance" />Romance</label>
-    <label><input type="checkbox" name="check" value="drama" />Drama</label>
-    <label><input type="checkbox" name="check" value="thriller" />Thriller</label>
+    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label><br />
+    <label><input type="checkbox" name="check" value="action" />Action</label><br />
+    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label><br />
+    <label><input type="checkbox" name="check" value="animation" />Animation</label><br />
+    <label><input type="checkbox" name="check" value="romance" />Romance</label><br />
+    <label><input type="checkbox" name="check" value="drama" />Drama</label><br />
+    <label><input type="checkbox" name="check" value="thriller" />Thriller</label><br />
     <label><input type="checkbox" name="check" value="comedy" />Comedy</label><br />
-    <label><input type="checkbox" name="check" value="crime" />Crime</label>
-    <label><input type="checkbox" name="check" value="horror" />Horror</label>
-    <label><input type="checkbox" name="check" value="familly" />Familly</label>
-    <label><input type="checkbox" name="check" value="mystery" />Mystery</label>
+    <label><input type="checkbox" name="check" value="crime" />Crime</label><br />
+    <label><input type="checkbox" name="check" value="horror" />Horror</label><br />
+    <label><input type="checkbox" name="check" value="familly" />Familly</label><br />
+    <label><input type="checkbox" name="check" value="mystery" />Mystery</label><br />
     <label><input type="checkbox" name="check" value="adventure" />Adventure</label><br />
-    <label><input type="checkbox" name="check" value="music" />Music</label>
-    <label><input type="checkbox" name="check" value="war" />War</label>
+    <label><input type="checkbox" name="check" value="music" />Music</label><br />
+    <label><input type="checkbox" name="check" value="war" />War</label><br />
     <label><input type="checkbox" name="check" value="biography" />Biography</label>
     <br />
     <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
@@ -45,20 +54,17 @@
             <label for="popularite" class="popularite">Popularite :</label>
             <input type="range" name="popularite" min="1" max="5" value="">
         </div><br /><br />
-<!--=====================Recherche========================================== -->
 
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
-            <div id="search">
-                <h2>Recherche</h2>
-                  <form>
-                      <label for="searchs" class="recherche">Rechercher :</label>
-                      <input type="text" name="searchs" value="">
-                  </form>
-            </div>
 
+<!-- end recherche -->
 
 <form>
 <input type="submit" value="Rechercher">
+</form>
+</div>
+
+<form>
+<input type="reset" value="+ de Film !">
 </form>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -138,10 +144,5 @@ function showThis(_div){
 
 </script>
 
-<br /><br /><br /><br /><br />
-
-<form>
-<input type="reset" value="+ de Film !">
-</form>
 
 <?php include('inc/footer.php') ?>
