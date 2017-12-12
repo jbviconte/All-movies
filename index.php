@@ -80,6 +80,27 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div>
 
 
+<br /><br /><br /><br /><br />
+
+<form>
+<input type="reset" value="+ de Film !">
+</form>
+
+<div class="film">
+
+    <?php foreach ($films as $film) { ?>
+
+      <p>titre        : <?php echo $film['title']; ?></p>
+      <p>réalisateurs : <?php echo $film['directors']; ?></p>
+      <p>cast         : <?php echo $film['cast']; ?></p>
+
+        <a href="details.php?slug=<?= $film['slug']; ?>">
+                <?php getImageFilm($film); ?>
+        </a>
+
+    <?php } ?>
+
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -175,26 +196,5 @@ $( function() {
 } );
 
 </script>
-
-<br /><br /><br /><br /><br />
-
-<form>
-<input type="reset" value="+ de Film !">
-</form>
-
-<div class="film">
-
-    <?php foreach ($films as $film) { ?>
-
-      <p>titre        : <?php echo $film['title']; ?></p>
-      <p>réalisateurs : <?php echo $film['directors']; ?></p>
-      <p>cast         : <?php echo $film['cast']; ?></p>
-
-        <a href="details.php?slug=<?= $film['slug']; ?>">
-                <?php getImageFilm($film); ?>
-        </a>
-
-    <?php } ?>
-
 
 <?php include('inc/footer.php') ?>
