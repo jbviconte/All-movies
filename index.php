@@ -19,12 +19,6 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         //echo '</pre>';
 
 ?>
-
-<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-
-
-<?php
-?>
 <?php include('inc/header.php') ?>
 
 <!-- <form action="search.php" method="post">
@@ -35,7 +29,8 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
-<<<<<<< HEAD
+
+<!--=====================Recherche========================================== -->
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
 <div id="search">
@@ -45,20 +40,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
   </form>
-
-<!-- ==========================Catégorie===================================== -->
-=======
-
-<!--=====================Recherche========================================== -->
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
-            <div id="search">
-                <h2>Recherche</h2>
-                  <form>
-                      <label for="searchs" class="recherche">Rechercher :</label>
-                      <input type="text" name="searchs" value="">
-                  </form>
 <!--==========================Catégorie===================================== -->
->>>>>>> four
 <div>
   <h2>Catégorie</h2>
 
@@ -84,68 +66,31 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div><br /><br />
 
 <!--=========================Années========================================= -->
+
 <div>
   <h2>Années</h2>
     <label for="year">Year:</label>
     <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
     <div id="slider-range"></div>
 </div><br /><br />
+
 <!--=====================Popularité========================================= -->
-<<<<<<< HEAD
+
 <div>
   <h2>Popularité</h2>
     <label for="popularite" class="popularite">Popularite :</label>
     <input type="range" name="popularite" min="1" max="5" value="">
 </div><br /><br />
-<!--=====================Recherche========================================== -->
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
-            <div id="search">
-                <h2>Recherche</h2>
-                  <form>
-                      <label for="searchs" class="recherche">Rechercher :</label>
-                      <input type="text" name="searchs" value="">
-                  </form>
-            </div>
-=======
-        <div>
-          <h2>Popularité</h2>
-            <label for="popularite" class="popularite">Popularite :</label>
-            <input type="range" name="popularite" min="1" max="5" value="">
-        </div><br /><br />
 
->>>>>>> four
-
-<!-- end recherche -->
 
 <form>
 <input type="submit" value="Rechercher">
 </form>
-<<<<<<< HEAD
-=======
-<div id="search">
-  <h2>Recherche</h2>
-  <form action="search.php?search=' . $recherche . '" method="post">
-    <label for="search" class="recherche">Rechercher :</label>
-    <input type="text" name="search" value="">
-    <input type="submit" value="Rechercher">
-  </form>
-=======
-
-
->>>>>>> 2cd13b24828e793b1fe2c6112b52d4a18e40b9f4
 </div>
+<!-- end recherche | -->
 
->>>>>>> f650c5fe210cdb9494296dd502a18b901f81d9e6
-=======
-</div>
 
-<form>
-<input type="reset" value="+ de Film !">
-</form>
->>>>>>> four
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -156,6 +101,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 
 //======================= Categorie ========================
+
 var but = document.getElementById('bouton');
   but.addEventListener('click', function(){
    checkUncheck(but);
@@ -192,7 +138,6 @@ var but = document.getElementById('bouton');
                }
              }
 //==================== année ===========================
-
  $( function() {
 $( "#slider-range" ).slider({
 range: true,
@@ -208,31 +153,11 @@ $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#sl
 
 //==================== Recherche ===========================
 
-<<<<<<< HEAD
-function showThis(_div){
-    var obj = document.getElementById("search");
-    if(obj.style.display == "block") {
-        obj.style.display = "none";
-  } else {
-        obj.style.display = "block";
-      }
-<<<<<<< HEAD
-      $(document).click(function() {
-  $("#search").toggle("swing");
-});
-=======
-          $( "#research" ).click(function() {
-          $( "#search" ).show( "slide", "right", 1000  );
-          });
->>>>>>> four
-}
-=======
 $( function() {
   // run the currently selected effect
   function runEffect() {
     // get effect type from
     var selectedEffect = $( "bounce" ).val();
-
     // Most effect types need no options passed by default
     var options = {};
     // some effects have required parameters
@@ -241,7 +166,6 @@ $( function() {
     } else if ( selectedEffect === "size" ) {
       options = { to: { width: 280, height: 185 } };
     }
-
     // Run the effect
     $( "#search" ).show( selectedEffect, options, 500, callback );
   };
@@ -260,10 +184,6 @@ $( function() {
 
   $( "#search" ).hide();
 } );
->>>>>>> f650c5fe210cdb9494296dd502a18b901f81d9e6
-
-
-
 </script>
 
 
@@ -280,6 +200,8 @@ $( function() {
         </a>
 
     <?php } ?>
-
+<form>
+  <input type="reset" value="+ de Film !">
+</form>
 
 <?php include('inc/footer.php') ?>
