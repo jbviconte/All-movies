@@ -1,6 +1,5 @@
 <?php $title = 'Home Front'; ?>
 <?php include('inc/pdo.php') ?>
-<<<<<<< HEAD
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
 
@@ -20,24 +19,23 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         //echo '</pre>';
 
 ?>
-=======
-<link rel="stylesheet" href="assets/css/style.css">
->>>>>>> four
+
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
 
 
 
 <?php include('inc/header.php') ?>
 
-<<<<<<< HEAD
-<form action="search.php" method="post">
+<!-- <form action="search.php" method="post">
   <label for="search" >Recherche</label>
   <input type="text" name="search" size="10">
 <input type="submit" value="Ok">
 
-</form>
-=======
+</form> -->
+
 <h1>Home Front</h1>
-<!--==========================Catégorie===================================== -->
+<!-- ==========================Catégorie===================================== -->
 <div>
   <h2>Catégorie</h2>
 
@@ -49,29 +47,26 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
     <label><input type="checkbox" name="check" value="amour" />Romance</label>
     <br />
     <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
->>>>>>> four
+
 
 </div><br /><br />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h1>Home Front</h1>
-=======
 <!--=========================Années========================================= -->
-    <div>
-      <h2>Années</h2>
-            <label for="year">Year:</label>
-            <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                <div id="slider-range"></div>
-    </div><br /><br />
+<div>
+  <h2>Années</h2>
+    <label for="year">Year:</label>
+    <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    <div id="slider-range"></div>
+</div><br /><br />
 <!--=====================Popularité========================================= -->
-        <div>
-          <h2>Popularité</h2>
-            <label for="popularite" class="popularite">Popularite :</label>
-            <input type="range" name="popularite" min="1" max="5" value="">
-        </div><br /><br />
+<div>
+  <h2>Popularité</h2>
+    <label for="popularite" class="popularite">Popularite :</label>
+    <input type="range" name="popularite" min="1" max="5" value="">
+</div><br /><br />
 <!--=====================Recherche========================================== -->
 
+<<<<<<< HEAD
 <button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
             <div id="search">
                 <h2>Recherche</h2>
@@ -85,6 +80,17 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 <form>
 <input type="submit" value="Rechercher">
 </form>
+=======
+<div id="search">
+  <h2>Recherche</h2>
+  <form action="search.php?search=' . $recherche . '" method="post">
+    <label for="search" class="recherche">Rechercher :</label>
+    <input type="text" name="search" value="">
+    <input type="submit" value="Rechercher">
+  </form>
+</div>
+
+>>>>>>> f650c5fe210cdb9494296dd502a18b901f81d9e6
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -147,6 +153,7 @@ $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#sl
 
 //==================== Recherche ===========================
 
+<<<<<<< HEAD
 function showThis(_div){
     var obj = document.getElementById("search");
     if(obj.style.display == "block") {
@@ -164,6 +171,41 @@ function showThis(_div){
           });
 >>>>>>> four
 }
+=======
+$( function() {
+  // run the currently selected effect
+  function runEffect() {
+    // get effect type from
+    var selectedEffect = $( "bounce" ).val();
+
+    // Most effect types need no options passed by default
+    var options = {};
+    // some effects have required parameters
+    if ( selectedEffect === "bounce" ) {
+      options = { percent: 50 };
+    } else if ( selectedEffect === "size" ) {
+      options = { to: { width: 280, height: 185 } };
+    }
+
+    // Run the effect
+    $( "#search" ).show( selectedEffect, options, 500, callback );
+  };
+
+  //callback function to bring a hidden box back
+  function callback() {
+    setTimeout(function() {
+      $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+    }, 1000 );
+  };
+
+  // Set effect from select menu value
+  $( "#research" ).on( "click", function() {
+    runEffect();
+  });
+
+  $( "#search" ).hide();
+} );
+>>>>>>> f650c5fe210cdb9494296dd502a18b901f81d9e6
 
 
 
@@ -174,11 +216,7 @@ function showThis(_div){
 <form>
 <input type="reset" value="+ de Film !">
 </form>
->>>>>>> four
 
-
-=======
->>>>>>> a96f1903d0428e59f8b649d160fe3801e999296a
 <div class="film">
 
     <?php foreach ($films as $film) { ?>

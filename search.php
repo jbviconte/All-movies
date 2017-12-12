@@ -5,20 +5,12 @@
 <?php
 
 $error = array();
-if(!empty($_GET['submit'])){
-  $sql = "SELECT * FROM movies_full";
+$recherche = $pdo->query("SELECT * FROM movies_full");
 
-  if(!empty($_GET['search'])){
-    $recherche = $_GET['search'];
+if(isset($_GET['search']) && !empty($_GET['search'])){
+  $recherche = htmlspecialchars($_GET['search']);
 
-    $sql .= "WHERE title LIKE :recherche OR cast LIKE :recherche OR directors LIKE :recherche";
-  }
-
-  $query = $pdo->prepare($sql);
-  $query->bindValue(':recherche', '%'.$recherche.'%', PDO::PARAM_INT);
-  $query->execute();
-
-
+    $recherche = $pdo->query("SELECT * FROM movies_full WHERE title LIKE "%$recherche%" OR cast LIKE "%$recherche%" OR directors LIKE "%$recherche%"");
 
 }
 
@@ -26,8 +18,8 @@ echo'<pre>';
 print_r($error);
 echo'</pre>';
 
-
-
-while ($r = $query->fetch()) {
-  $r['title'];
+while ($r = $recherche->fetch()) {
+  echo '<p>' . $r['title'] . '</p>';
+  echo '<p>' . $r['cast'] . '</p>';
+  echo '<p>' . $r['directors'] . '</p>';
 }

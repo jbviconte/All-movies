@@ -45,7 +45,7 @@ if(!empty($_POST['submit'])) {
             'ip' => $_SERVER['REMOTE_ADDR'],
           );
 
-          header('Location: index.php');
+          // header('Location: index.php');
         } else {
             $errors['password'] = 'Mot de passe érroné';
         }
@@ -54,22 +54,23 @@ if(!empty($_POST['submit'])) {
       }
 
     }else{
-      $errors['pseudo'] && $errors['email'] = 'pseudo ou email érroné';
+      $errors['pseudo'] = 'pseudo érroné';
+      $errors['email'] = 'email érroné';
     }
 
-
   }else{
-    $errors['pseudo'] && $errors['email'] = 'Veuillez saisir un pseudo ou un email valide';
+    $errors['pseudo'] = 'Veuillez saisir un pseudo valide';
+    $errors['email'] = 'Veuillez saisir un email valide';
   }
 }
 
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 
-if (!empty($_SESSION)) {
-  header('Location: index.php');
-}
+// if (!empty($_SESSION)) {
+//   header('Location: index.php');
+// }
 ?>
 <?php include('inc/header.php') ?>
 
