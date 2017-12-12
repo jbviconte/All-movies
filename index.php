@@ -19,12 +19,6 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         //echo '</pre>';
 
 ?>
-
-<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-
-
-
-
 <?php include('inc/header.php') ?>
 
 <!-- <form action="search.php" method="post">
@@ -35,40 +29,74 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </form> -->
 
 <h1>Home Front</h1>
-<!--=====================Recherche========================================== -->
-<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 
+<!--=====================Recherche========================================== -->
+
+<button id="research" value="1" onclick="showThis();">Filtres</button><br /><br />
 <div id="search">
   <h2>Recherche</h2>
-  <form action="search.php?recherche=' . $recherche . '" method="post">
+  <form action="search.php?search=<?php $search ?>" method="get">
     <label for="search" class="recherche">Rechercher :</label>
     <input type="text" name="search" value="">
     <input type="submit" value="Rechercher">
   </form>
 
-<!-- ==========================Catégorie===================================== -->
+<!--==========================Catégorie===================================== -->
+
 <div>
   <h2>Catégorie</h2>
 
-    <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
+    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label><br />
     <label><input type="checkbox" name="check" value="action" />Action</label><br />
-    <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
-    <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
-    <label><input type="checkbox" name="check" value="western" />Western</label><br />
-    <label><input type="checkbox" name="check" value="amour" />Romance</label>
+    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label><br />
+    <label><input type="checkbox" name="check" value="animation" />Animation</label><br />
+    <label><input type="checkbox" name="check" value="romance" />Romance</label><br />
+    <label><input type="checkbox" name="check" value="drama" />Drama</label><br />
+    <label><input type="checkbox" name="check" value="thriller" />Thriller</label><br />
+    <label><input type="checkbox" name="check" value="comedy" />Comedy</label><br />
+    <label><input type="checkbox" name="check" value="crime" />Crime</label><br />
+    <label><input type="checkbox" name="check" value="horror" />Horror</label><br />
+    <label><input type="checkbox" name="check" value="familly" />Familly</label><br />
+    <label><input type="checkbox" name="check" value="mystery" />Mystery</label><br />
+    <label><input type="checkbox" name="check" value="adventure" />Adventure</label><br />
+    <label><input type="checkbox" name="check" value="music" />Music</label><br />
+    <label><input type="checkbox" name="check" value="war" />War</label><br />
+    <label><input type="checkbox" name="check" value="biography" />Biography</label>
     <br />
     <button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
 
-</div><br /><br />
+    <input type="search" name="search" value="">
+
+
+
+<!-- ==========================Catégorie===================================== -->
+
+  <div>
+    <h2>Catégorie</h2>
+
+      <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
+        <label><input type="checkbox" name="check" value="action" />Action</label><br />
+          <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
+          <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
+        <label><input type="checkbox" name="check" value="western" />Western</label><br />
+      <label><input type="checkbox" name="check" value="amour" />Romance</label>
+        <br />
+<button id="bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
+
+
+    </div><br /><br />
 
 <!--=========================Années========================================= -->
+
 <div>
   <h2>Années</h2>
     <label for="year">Year:</label>
-    <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
     <div id="slider-range"></div>
 </div><br /><br />
+
 <!--=====================Popularité========================================= -->
+
 <div>
   <h2>Popularité</h2>
     <label for="popularite" class="popularite">Popularite :</label>
@@ -76,11 +104,33 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div><br /><br />
 
 
+<form>
+<input type="submit" value="Rechercher">
+</form>
+</div>
+<!-- end recherche | -->
 
+  <div>
+    <h2>Années</h2>
+      <label for="year">Year:</label>
+        <input type="text" id="year" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      <div id="slider-range"></div>
+    </div><br /><br />
+
+<!--=====================Popularité========================================= -->
+
+  <div>
+    <h2>Popularité</h2>
+      <label for="popularite" class="popularite">Popularite :</label>
+        <input type="range" name="popularite" min="1" max="5" value="">
+  </div><br /><br />
+    <input type="submit" value="Rechercher">
+  </form>
 </div>
 
 
 <br /><br />
+
 
 
 <div class="film">
@@ -94,12 +144,18 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
         <a href="details.php?slug=<?= $film['slug']; ?>">
                 <?php getImageFilm($film); ?>
         </a>
-
     <?php } ?>
+<form>
+  <input type="reset" value="+ de Film !">
+</form>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 <form>
-<input type="submit" value="+ de Film !">
+  <input type="submit" value="+ de Film !">
 </form>
+
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -110,6 +166,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 
 
 //======================= Categorie ========================
+
 var but = document.getElementById('bouton');
   but.addEventListener('click', function(){
    checkUncheck(but);
@@ -146,7 +203,6 @@ var but = document.getElementById('bouton');
                }
              }
 //==================== année ===========================
-
  $( function() {
 $( "#slider-range" ).slider({
 range: true,
@@ -158,7 +214,7 @@ slide: function( event, ui ) {
 }
 });
 $( "#year" ).val( + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
-} );
+}, 20);
 
 //==================== Recherche ===========================
 
@@ -167,7 +223,6 @@ $( function() {
   function runEffect() {
     // get effect type from
     var selectedEffect = $( "bounce" ).val();
-
     // Most effect types need no options passed by default
     var options = {};
     // some effects have required parameters
@@ -176,7 +231,6 @@ $( function() {
     } else if ( selectedEffect === "size" ) {
       options = { to: { width: 280, height: 185 } };
     }
-
     // Run the effect
     $( "#search" ).show( selectedEffect, options, 500, callback );
   };
@@ -195,7 +249,7 @@ $( function() {
 
   $( "#search" ).hide();
 } );
-
 </script>
+
 
 <?php include('inc/footer.php') ?>
