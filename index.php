@@ -2,8 +2,8 @@
 <?php include('inc/pdo.php') ?>
 <link rel="stylesheet" href="assets/css/style.css">
 
-
-
+<?php
+?>
 <?php include('inc/header.php') ?>
 
 <h1>Home Front</h1>
@@ -11,12 +11,22 @@
 <div>
   <h2>Catégorie</h2>
 
-    <label><input type="checkbox" name="check" value="fantastique" />Fantastique</label><br />
+    <label><input type="checkbox" name="check" value="fantasy" />Fantasy</label><br />
     <label><input type="checkbox" name="check" value="action" />Action</label><br />
-    <label><input type="checkbox" name="check" value="syfy" />Science-Fiction</label><br />
-    <label><input type="checkbox" name="check" value="anime" />Animation</label><br />
-    <label><input type="checkbox" name="check" value="western" />Western</label><br />
-    <label><input type="checkbox" name="check" value="amour" />Romance</label>
+    <label><input type="checkbox" name="check" value="sci_fi" />Sci-Fi</label><br />
+    <label><input type="checkbox" name="check" value="animation" />Animation</label><br />
+    <label><input type="checkbox" name="check" value="romance" />Romance</label>
+    <label><input type="checkbox" name="check" value="drama" />Drama</label>
+    <label><input type="checkbox" name="check" value="thriller" />Thriller</label>
+    <label><input type="checkbox" name="check" value="comedy" />Comedy</label>
+    <label><input type="checkbox" name="check" value="crime" />Crime</label>
+    <label><input type="checkbox" name="check" value="horror" />Horror</label>
+    <label><input type="checkbox" name="check" value="familly" />Familly</label>
+    <label><input type="checkbox" name="check" value="mystery" />Mystery</label>
+    <label><input type="checkbox" name="check" value="adventure" />Adventure</label>
+    <label><input type="checkbox" name="check" value="music" />Music</label>
+    <label><input type="checkbox" name="check" value="war" />War</label>
+    <label><input type="checkbox" name="check" value="biography" />Biography</label>
     <br />
     <button id = "bouton" value="1" onclick="checkUncheckALL();" >Tout cocher</button>
 
