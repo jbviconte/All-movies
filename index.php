@@ -80,7 +80,7 @@ $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
 </div>
 
 
-<br /><br /><br /><br /><br />
+<br /><br />
 
 
 <div class="film">
