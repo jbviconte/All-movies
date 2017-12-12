@@ -1,42 +1,48 @@
 <?php $title = 'Notation'; ?>
+<?php include('inc/function.php') ?>
 <?php include('inc/pdo.php') ?>
 <?php session_start();?>
 <?php include('helper/session.php'); ?>
 <?php
 
+
+if (connecLogin() == false) {
+  die('403');
+}
 // tableau vide qui definit et va permettre d'afficher les erreurs
 $error = array();
-if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = $_GET['id'];
-    $film_id = $_GET['id'];
+
+if(!empty($_GET['id'])) {
+  $filmid = $_GET['id'];
+
+
+
 
     $sql = "SELECT * FROM movies_full WHERE id = :id";
     // preparation
     $query = $pdo->prepare($sql);
-    // protection SQL
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-    // execution
+   // protection SQL
+    $query->bindValue(':id', $filmid, PDO::PARAM_INT);
+   // execution
     $query->execute();
+
     // affichage
     $film = $query->fetch();
 
+
+  // si le formulaire (ici la note) est soumis(e) alors j'execute les verifications et j'echange avec ma base de données
   if(!empty($_POST['vote'])) {
-
-    $note = trim(strip_strp($_post['note']));
-
+    $note = trim(strip_tags($_POST['note']));
+    $id_user = $_SESSION['user']['id'];
     // definition de insert into, ici on vise a ajouter la note a la base de données
-    $sql = "INSERT INTO notes (id, user_id, film_id, note, created_at) VALUES (:id, :user_id, :film_id, :note, NOW())";
+    $sql = "INSERT INTO notes (film_id,user_id,note, created_at) VALUES (:idfilm,:iduser,:note, NOW())";
     // preparation requete
     $query = $pdo->prepare($sql);
     // protection SQL
-    $query->bindValue(':id', $id, PDO::PARAM_INT); // definir l'id a recuperer (ici le film visé)
-    $query->bindValue(':user_id', $user_id, PDO::PARAM_STR);
-    $query->bindValue(':film_id', $film_id, PDO::PARAM_STR);
     $query->bindValue(':note', $note, PDO::PARAM_INT);
-    $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
-    // execution
-    $query->execute();
-  };
+    $query->bindValue(':idfilm', $filmid, PDO::PARAM_INT);
+    $query->bindValue(':iduser', $id_user, PDO::PARAM_INT);
+
 
 }
 
@@ -45,20 +51,29 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
 // print_r($error);
 // echo '</pre>';
 
+    // execution
+    $query->execute();
 
 
 
 
 
- include('inc/header.php')
+  } else {
+    header('location: index.php');
+  }
+
 
 ?>
-<link rel="stylesheet" href="assets/css/rating.css">
+
 <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+<link rel="stylesheet" href="assets/css/rating.css">
 
 <header class='header text-center' class="header">
     <h2>Notez ce film</h2>
+
     <p>Chaque etoile correspond à 20 point (note totale sur 100)</p>
+
+
 </header>
 
 <section class='rating-widget'>
@@ -67,19 +82,19 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   <div class='rating-stars text-center'>
     <ul id='stars'>
       <li class='star' data-value='1'>
-        <i name='etoile1' class='fa fa-star fa-fw'></i>
+        <i class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='2'>
-        <i name='etoile2' class='fa fa-star fa-fw'></i>
+        <i class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='3'>
-        <i name='etoile3' class='fa fa-star fa-fw'></i>
+        <i class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='4'>
-        <i name='etoile4' class='fa fa-star fa-fw'></i>
+        <i class='fa fa-star fa-fw'></i>
       </li>
       <li class='star' data-value='5'>
-        <i name='etoile5' class='fa fa-star fa-fw'></i>
+        <i class='fa fa-star fa-fw'></i>
       </li>
     </ul>
   </div>
@@ -90,9 +105,10 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
     <div class='text-message'></div>
   </div>
 
+<form action="" method="post">
   <input type="number" name="note" value="note" min="0" max="100">
-  <input type="submit" class="vote" name="vote" value="Je vote !">
-
+  <input type="submit" class="votation" name="vote" value="Je vote !">
+</form>
 
 </section>
 
@@ -169,7 +185,4 @@ $('.success-box div.text-message').html("<span>" + msg + "</span>");
 </script>
 
 
-
-
-<a href="index.php">retour à l'acceuil</a>
 <?php include('inc/footer.php') ?>
