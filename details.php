@@ -63,7 +63,7 @@ if (!empty($_GET['slug'])) {
 
 
 
-  <a href="notation.php">Noté ce film</a>
+  <?php echo '<a href="notation.php?id='.$film['id'].'">Noté ce film</a>'?>
 </div>
 
 <?php include('inc/footer.php') ?>

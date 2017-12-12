@@ -1,5 +1,7 @@
 <?php $title = 'Notation'; ?>
 <?php include('inc/pdo.php') ?>
+<?php session_start();?>
+<?php include('helper/session.php'); ?>
 <?php
 
 // tableau vide qui definit et va permettre d'afficher les erreurs
@@ -7,9 +9,6 @@ $error = array();
 
 if(!empty($_GET['id'])) {
   $filmid = $_GET['id'];
-} else {
-  header('location: index.php');
-}
 
   // si le formulaire (ici la note) est soumis(e) alors j'execute les verifications et j'echange avec ma base de données
   if(!empty($_POST['vote'])) {
@@ -39,6 +38,10 @@ if(!empty($_GET['id'])) {
     echo '<pre>';
     print_r($error);
     echo '</pre>';
+
+  } else {
+    header('location: index.php');
+  }
 
  include('inc/header.php')
 

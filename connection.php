@@ -16,10 +16,9 @@ if(!empty($_POST['submit'])) {
   if(count($errors) == 0){
 
 
-    $sql = "SELECT * FROM users WHERE pseudo = :pseudo OR email = :pseudo AND password = :password";
+    $sql = "SELECT * FROM users WHERE pseudo = :pseudo OR email = :pseudo";
     $query = $pdo->prepare($sql);
     $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-    $query->bindValue(':password', $password, PDO::PARAM_STR);
     $query->execute();
     $connection = $query->fetch();
 
@@ -45,7 +44,7 @@ if(!empty($_POST['submit'])) {
             'ip' => $_SERVER['REMOTE_ADDR'],
           );
 
-          // header('Location: index.php');
+          header('Location: index.php');
         } else {
             $errors['password'] = 'Mot de passe érroné';
         }
@@ -54,23 +53,21 @@ if(!empty($_POST['submit'])) {
       }
 
     }else{
-      $errors['pseudo'] = 'pseudo érroné';
-      $errors['email'] = 'email érroné';
+      $errors['pseudo'] = 'pseudo ou email érroné';
     }
 
   }else{
-    $errors['pseudo'] = 'Veuillez saisir un pseudo valide';
-    $errors['email'] = 'Veuillez saisir un email valide';
+    $errors['pseudo'] = 'Veuillez saisir un pseudo ou un email valide';
   }
 }
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
 
-// if (!empty($_SESSION)) {
-//   header('Location: index.php');
-// }
+if (!empty($_SESSION)) {
+  header('Location: index.php');
+}
 ?>
 <?php include('inc/header.php') ?>
 
